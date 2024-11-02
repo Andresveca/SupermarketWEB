@@ -4,11 +4,10 @@ using Microsoft.EntityFrameworkCore;
 using SupermarketWEB.Data;
 using SupermarketWEB.Models;
 
-namespace SupermarketWEB.Pages.Categories
+namespace SupermarketWEB.Pages.Products
 {
-	public class CreateModel : PageModel
-	{
-		
+    public class CreateModel : PageModel
+    {
 		private readonly SupermarketContext _context;
 
 		public CreateModel(SupermarketContext context)
@@ -17,7 +16,6 @@ namespace SupermarketWEB.Pages.Categories
 			_context = context;
 		}
 
-
 		public IActionResult OnGet()
 		{
 			return Page();
@@ -25,17 +23,17 @@ namespace SupermarketWEB.Pages.Categories
 
 		[BindProperty]
 
-		public Category Category { get; set; } = default!;
+		public Product Product { get; set; } = default!;
 
 		public async Task<IActionResult> OnPostAsync()
 		{
-			if (!ModelState.IsValid || _context.Categories == null || Category ==null)
+			if (!ModelState.IsValid || _context.Products == null || Product == null)
 			{
-				return Page();
+				//return Page();
 			}
 
 
-			_context.Categories.Add(Category);
+			_context.Products.Add(Product);
 			await _context.SaveChangesAsync();
 
 			return RedirectToPage("./Index");
