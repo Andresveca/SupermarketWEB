@@ -33,7 +33,7 @@ namespace SupermarketWEB.Pages.Products
 			}
 			else
 			{
-				Product = Product;
+				Product = product;
 			}
 			return Page();
 		}
