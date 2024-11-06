@@ -21,6 +21,9 @@
 				@Html.DisplayNameFor(model => model.Providers[0].Birthday)
 			</th>
 			<th>
+				@Html.DisplayNameFor(model => model.Providers[0].PhoneNumber)
+			</th>
+			<th>
 				@Html.DisplayNameFor(model => model.Providers[0].Email)
 			</th>
 			<th>Actions</th>
@@ -36,8 +39,11 @@
 						<td>
 					@Html.DisplayFor(modelItem => item.Address)
 						</td>
-							<td>
+						<td>
 					@Html.DisplayFor(modelItem => item.Birthday)
+						</td>
+							<td>
+					@Html.DisplayFor(modelItem => item.PhoneNumber)
 							</td>	
 								<td>
 					@Html.DisplayFor(modelItem => item.Email)
