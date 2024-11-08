@@ -17,6 +17,12 @@ namespace SupermarketWEB
             options.UseSqlServer(builder.Configuration.GetConnectionString("SupermarketEF"))
             );
 
+            builder.Services.AddAuthentication().AddCookie("MyCookieAuth", options =>
+            {
+                options.Cookie.Name = "MyCookieAuth";
+                options.LoginPath = "/Account/Login"; //Sino esta Autenticado, cargue la pagina Login
+            });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

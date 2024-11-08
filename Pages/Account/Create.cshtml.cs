@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using SupermarketWEB.Data;
 using SupermarketWEB.Models;
 
-namespace SupermarketWEB.Pages.Providers
+namespace SupermarketWEB.Pages.Account
 {
 	[Authorize]
 	public class CreateModel : PageModel
@@ -17,6 +17,7 @@ namespace SupermarketWEB.Pages.Providers
 			_context = context;
 		}
 
+
 		public IActionResult OnGet()
 		{
 			return Page();
@@ -24,20 +25,20 @@ namespace SupermarketWEB.Pages.Providers
 
 		[BindProperty]
 
-		public Provider Provider { get; set; } = default!;
+		public User User { get; set; } = default!;
 
 		public async Task<IActionResult> OnPostAsync()
 		{
-			if (!ModelState.IsValid || _context.Providers == null || Provider == null)
+			if (!ModelState.IsValid || _context.Users == null || User == null)
 			{
-				//return Page();
+				return Page();
 			}
 
 
-			_context.Providers.Add(Provider);
+			_context.Users.Add(User);
 			await _context.SaveChangesAsync();
 
-			return RedirectToPage("./Index");
+			return RedirectToPage("./Account/Login");
 		}
 	}
 }
