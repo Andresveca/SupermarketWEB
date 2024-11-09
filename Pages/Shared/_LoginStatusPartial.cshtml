@@ -1,4 +1,5 @@
-﻿@if (User.Identity.IsAuthenticated)
+﻿
+@if (User.Identity.IsAuthenticated)
 {
             <form method="post" class="d-inline" asp-page="/Account/Logout">
                 <span>Welcome @User.Identity.Name</span>

@@ -4,7 +4,9 @@ namespace SupermarketWEB.Models
 {
 	public class User
 	{
-		[Required] //verificar que se importo using System. ComponentModel. DataAnnotations;
+        public int Id { get; set; } // Sera la llave priamaria 
+
+        [Required] //verificar que se importo using System. ComponentModel. DataAnnotations;
 		[DataType(DataType.EmailAddress)]
 		public string Email { get; set; }
 		[Required]
